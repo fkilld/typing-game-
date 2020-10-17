@@ -1,38 +1,195 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Jost", sans-serif;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: #f73859;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  width: 25%;
+  line-height: 1;
+  height: 100%;
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* App Styles */
+
 .App {
+  width: 100%;
+  min-height: 100vh;
+  background: #111;
+  display: flex;
+}
+
+/* Typeracer Styles */
+
+.typeRacer {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #283149;
+}
+
+.typeRacer .wordOutput {
+  width: 100%;
+  background: #111727;
+  color: #fff;
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.typeRacer .wordOutput p {
+  font-size: 26px;
+  line-height: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.typeRacer .time {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 2px solid #f73859;
+  color: #fff;
+  display: flex;
+}
+
+.typeRacer .time p {
+  margin: auto;
+  font-size: 60px;
+  line-height: 1;
+}
+
+.typeRacer .wordValues {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.typeRacer .wordValues input {
+  width: 75%;
+  height: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: #111727;
+  color: #fff;
+}
+
+.typeRacer .wordValues input::placeholder {
+  color: #fff;
+}
+
+/* Keyframes Animation For Clock */
+
+@keyframes scaleNumber {
+  0% {
+    transform: scale(1.25);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.25);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Result Styles */
+
+.results {
+  width: 100%;
+  max-width: 540px;
+  background: #283149;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.results .title {
+  padding: 20px;
+  background: #111727;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.results .title p {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.results .resultsContainer {
+  width: 100%;
+  display: flex;
+  height: 80vh;
+  max-height: 80vh;
+  overflow: auto;
+  margin: auto;
+}
+
+.results .resultsContainer::-webkit-scrollbar {
+  width: 7px;
+}
+
+.results .resultsContainer::-webkit-scrollbar-thumb {
+  background: #f73859;
+  border-radius: 50px;
+  outline: 1px solid slategrey;
+}
+
+.results .resultsContainer .correctResults,
+.results .resultsContainer .wrongResults {
+  width: 100%;
+  max-width: 50%;
+  padding: 14px;
+}
+
+.results .resultsContainer .correctResults .row,
+.results .resultsContainer .wrongResults .row {
+  width: 100%;
+  padding: 14px;
+  background: #f73859;
+  color: #fff;
+  border-radius: 4px;
+  word-wrap: break-word;
+}
+
+.results .resultsContainer .correctResults .row:not(:last-of-type),
+.results .resultsContainer .wrongResults .row:not(:last-of-type) {
+  margin-bottom: 10px;
+}
+
+/* Media Queries */
+
+@media (max-width: 580px) {
+  button {
+    font-size: 16px;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 1210px) {
+  .App {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 14px;
+  }
+  .App .container {
+    max-width: 700px;
+  }
+  .results {
+    max-width: 700px;
+    margin: 40px 0;
   }
 }
